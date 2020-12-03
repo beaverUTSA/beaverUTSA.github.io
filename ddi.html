@@ -52,7 +52,7 @@ Output:
   </p>
   <pre>
     <code>
-    <strong>--SQL Solution</strong>
+    <strong>--SQL Solution if there are multiple foo.com websites</strong>
     
     SELECT VULN_ID, PAGE_ID, data
     FROM vulnerabilities
@@ -64,6 +64,25 @@ Output:
        		FROM websites 
 		WHERE Name = "foo") 
 	AND path LIKE '%login.html%');
+    </code>
+    
+    <code>
+    <strong>--SQL Solution if foo.com is a unique website</strong>
+    
+    SELECT VULN_ID, PAGE_ID, data
+    FROM vulnerabilities
+    WHERE PAGE_ID IN (
+    	SELECT PAGE_ID 
+	FROM pages 
+        WHERE WEBSITE_ID IN (
+		SELECT WEBSITE_ID 
+       		FROM websites 
+		WHERE URL LIKE '%foo.com%') 
+	AND path LIKE '%login.html%');
+    </code>
+    
+    <code>
+    <strong>Python solution</strong>
     </code>
   </pre>
   <qanda>
