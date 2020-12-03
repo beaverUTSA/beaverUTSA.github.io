@@ -66,10 +66,10 @@ Output:
     </code>
   </pre>
   <qanda>
-	  How do we make this performant when we have 10 billion unique vulnerabilities across hundreds of thousands of websites?<br>
-	  <strong>    I would recommend to make a unique key from the websites and pages tables and add that to a column in the vulnerabilities table<br>
-	  So given a website and page, that could be on its own table or calculated before hitting the database.<br>
-	  The downside to this speedup would be the maintenace needed on those tables, like what if a new page is added or new vulnerabilites are found?<br>
+	  How do we make this performant when we have 10 billion unique vulnerabilities across hundreds of thousands of websites?<br><br>
+	  <strong>    I would recommend to make a unique key from the websites and pages tables and add that to a column in the vulnerabilities table<br><br>
+	  So given a website and page, that could be on its own table or calculated before hitting the database.<br><br>
+	  The downside to this speedup would be the maintenace needed on those tables, like what if a new page is added or new vulnerabilites are found?<br><br>
 	  And what if the name of the website changes? The lookup tables would need to be updated to be accurate.
 	  </strong>
   </qanda>
