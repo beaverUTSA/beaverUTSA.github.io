@@ -24,7 +24,7 @@ Given a table that holds websites (WEBSITE_ID, Name, URL), website pages (PAGE_I
 Table websites:
 WEBSITE_ID, Name, URL
 1. foo, http://foo.com
-2. bar, http://foo.com
+2. bar, http://foo.com <strong>should it be http://bar.com?</strong>
 
 Table pages:
 PAGE_ID, WEBSITE_ID, path
@@ -50,8 +50,6 @@ Output:
 1, 1, SQL injection response blah
 2, 1, XXE response
 3, 1, Stored XSS response
-
-How do we make this performant when we have 10 billion unique vulnerabilities across hundreds of thousands of websites?
   </p>
   <pre>
     <code>
@@ -68,6 +66,12 @@ How do we make this performant when we have 10 billion unique vulnerabilities ac
     </code>
   </pre>
   <p>
+	  How do we make this performant when we have 10 billion unique vulnerabilities across hundreds of thousands of websites?
+	  <strong>    I would recommend to make a unique key from the websites and pages tables and add that to a column in the vulnerabilities table
+	  So given a website and page, that could be on its own table or calculated before hitting the database.
+	  The downside to this speedup would be the maintenace needed on those tables, like what if a new page is added or new vulnerabilites are found?
+	  And what if the name of the website changes? The lookup tables would need to be updated to be accurate.
+	  </strong>
   </p>
   
   <h1>Question 2</h1>
