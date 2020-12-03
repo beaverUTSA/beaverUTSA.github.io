@@ -65,14 +65,14 @@ Output:
 	AND path LIKE '%login%');
     </code>
   </pre>
-  <p>
+  <qanda>
 	  How do we make this performant when we have 10 billion unique vulnerabilities across hundreds of thousands of websites?
 	  <strong>    I would recommend to make a unique key from the websites and pages tables and add that to a column in the vulnerabilities table
 	  So given a website and page, that could be on its own table or calculated before hitting the database.
 	  The downside to this speedup would be the maintenace needed on those tables, like what if a new page is added or new vulnerabilites are found?
 	  And what if the name of the website changes? The lookup tables would need to be updated to be accurate.
 	  </strong>
-  </p>
+  </qanda>
   
   <h1>Question 2</h1>
   <p>
