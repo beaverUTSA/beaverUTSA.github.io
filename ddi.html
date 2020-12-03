@@ -17,8 +17,8 @@ pre code {
     <code>
     SELECT VULN_ID, PAGE_ID, data
     FROM vulnerabilities
-    WHERE PAGE_ID IN
-    	(SELECT PAGE_ID 
+    WHERE PAGE_ID IN (
+    	SELECT PAGE_ID 
 	FROM pages 
         WHERE WEBSITE_ID IN (
 		SELECT WEBSITE_ID 
