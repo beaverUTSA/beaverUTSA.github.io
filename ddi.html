@@ -15,16 +15,16 @@ pre code {
   <h1>Question 1</h1>
   <pre>
     <code>
-    select VULN_ID, PAGE_ID, data
-    from vulnerabilities
-    where PAGE_ID in
-	      (select PAGE_ID 
-	      from pages 
-        where WEBSITE_ID in (
-		        select WEBSITE_ID 
-       	    from websites 
-		        where Name = "foo") 
-	      and path like '%login%');
+    SELECT VULN_ID, PAGE_ID, data
+    FROM vulnerabilities
+    WHERE PAGE_ID IN
+    	(SELECT PAGE_ID 
+	FROM pages 
+        WHERE WEBSITE_ID IN (
+		SELECT WEBSITE_ID 
+       		FROM websites 
+		WHERE Name = "foo") 
+	AND path LIKE '%login%');
     </code>
   </pre>
   <p>
