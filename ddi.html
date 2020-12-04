@@ -135,7 +135,9 @@ output:
   </p>
 	<pre>
 	   <code>
-	   def apply_port_exclusions(include_ports, exclude_ports):
+	   </code>
+	   <code>
+def apply_port_exclusions(include_ports, exclude_ports):
     if include_ports == []:
         return []
     include_ports.sort()
@@ -164,7 +166,7 @@ print(apply_port_exclusions([[8000, 9000], [80, 80], [22, 23]],[[1024, 1024], [8
 print("[[22, 23], [80, 80], [8000, 8079], [8081, 9000]] expected")
 print(apply_port_exclusions([[1,65535]],[[1000,2000], [500, 2500]]))
 print("[[1, 499], [2501, 65535]] expected")
-#all thats missing here is joining included ports and removing the ones out of range
+<strong>#all thats missing here is joining included ports and removing the ones out of range</strong>
 print(apply_port_exclusions([[1,1], [3, 65535], [2, 2]],[[1000, 2000], [500, 2500]]))
 print("[[1, 499], [2501, 65535]] expected")
 print(apply_port_exclusions([],[[8080, 8080]]))
