@@ -14,6 +14,14 @@ def apply_port_exclusions(include_ports, exclude_ports):
             x-=1
         #print(include_ports[x])
         x += 1
+    index = 0
+    while index < len(exclude_ports):
+        if index > 0 and (exclude_ports[index-1][0] < exclude_ports[index][0]) and (exclude_ports[index-1][1] > exclude_ports[index][1]):
+            #print("Hello")
+            exclude_ports[index][0] = exclude_ports[index-1][0]
+            exclude_ports[index][1] = exclude_ports[index-1][1]
+            exclude_ports.pop(index-1)
+        index += 1
     for x in include_ports:
         for y in exclude_ports:  
             if(x[0] < y[0] and x[1] > y[1]):
